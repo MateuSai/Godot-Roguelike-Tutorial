@@ -1,0 +1,1 @@
+the tiles "wall_side_left" and "wall_side_right" are the tiles that fit on the end of each wall, they do not need to be placed, only if you want
