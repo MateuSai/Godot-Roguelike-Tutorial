@@ -36,6 +36,8 @@ window/size/width=480
 window/size/height=270
 window/size/test_width=1280
 window/size/test_height=720
+mouse_cursor/custom_image="res://Art/v1.1 dungeon crawler 16x16 pixel pack/ui (new)/crosshair_3.png"
+mouse_cursor/custom_image_hotspot=Vector2( 16, 16 )
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
