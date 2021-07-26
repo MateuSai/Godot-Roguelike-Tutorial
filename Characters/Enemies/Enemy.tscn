@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Characters/Character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Characters/Enemies/Enemy.gd" type="Script" id=2]
+
+[node name="Enemy" instance=ExtResource( 1 )]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 2 )
+
+[node name="PathTimer" type="Timer" parent="." index="4"]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="PathTimer" to="." method="_on_PathTimer_timeout"]
