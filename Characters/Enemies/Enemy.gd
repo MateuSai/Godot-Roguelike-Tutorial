@@ -5,6 +5,7 @@ var path: PoolVector2Array
 
 onready var navigation: Navigation2D = get_tree().current_scene.get_node("Navigation2D")
 onready var player: KinematicBody2D = get_tree().current_scene.get_node("Player")
+onready var path_timer: Timer = get_node("PathTimer")
 
 
 func chase() -> void:
@@ -24,4 +25,9 @@ func chase() -> void:
 
 
 func _on_PathTimer_timeout() -> void:
-	path = navigation.get_simple_path(global_position, player.position)
+	if is_instance_valid(player):
+		path = navigation.get_simple_path(global_position, player.position)
+	else:
+		path_timer.stop()
+		path = []
+		mov_direction = Vector2.ZERO
