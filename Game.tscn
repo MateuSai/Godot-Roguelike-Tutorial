@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Rooms/Room0.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Game.gd" type="Script" id=3]
+[ext_resource path="res://Rooms.gd" type="Script" id=4]
 [ext_resource path="res://Art/v1.1 dungeon crawler 16x16 pixel pack/ui (new)/health_ui.png" type="Texture" id=5]
 [ext_resource path="res://Art/progress bar.png" type="Texture" id=6]
 [ext_resource path="res://UI.gd" type="Script" id=7]
@@ -28,13 +28,13 @@ __meta__ = {
 
 [node name="Tween" type="Tween" parent="UI/HealthBar"]
 
-[node name="Rooms" type="Node2D" parent="."]
-
-[node name="Room0" parent="Rooms" instance=ExtResource( 1 )]
-position = Vector2( 64, 32 )
+[node name="Rooms" type="Navigation2D" parent="."]
+script = ExtResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 224, 240 )
+position = Vector2( 133.183, 118.911 )
 hp = 4
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="hp_changed" from="Player" to="UI" method="_on_Player_hp_changed"]

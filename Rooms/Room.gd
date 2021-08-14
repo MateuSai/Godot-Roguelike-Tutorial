@@ -8,7 +8,7 @@ const ENEMY_SCENES: Dictionary = {
 
 var num_enemies: int
 
-onready var tilemap: TileMap = get_node("Navigation2D/TileMap2")
+onready var tilemap: TileMap = get_node("TileMap2")
 onready var entrance: Node2D = get_node("Entrance")
 onready var door_container: Node2D = get_node("Doors")
 onready var enemy_positions_container: Node2D = get_node("EnemyPositions")
@@ -51,5 +51,8 @@ func _spawn_enemies() -> void:
 
 func _on_PlayerDetector_body_entered(_body: KinematicBody2D) -> void:
 	player_detector.queue_free()
-	_close_entrance()
-	_spawn_enemies()
+	if num_enemies > 0:
+		_close_entrance()
+		_spawn_enemies()
+	else:
+		_open_doors()

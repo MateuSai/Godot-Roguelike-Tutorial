@@ -6,16 +6,23 @@
 [node name="Room" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="Navigation2D" type="Navigation2D" parent="."]
-
-[node name="TileMap" type="TileMap" parent="Navigation2D"]
+[node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
 
-[node name="TileMap2" type="TileMap" parent="Navigation2D"]
+[node name="TileMap2" type="TileMap" parent="."]
+z_index = 1
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="FurnitureTileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+cell_y_sort = true
+collision_layer = 0
+collision_mask = 2
 format = 1
 
 [node name="Entrance" type="Node2D" parent="."]
@@ -25,5 +32,7 @@ format = 1
 [node name="EnemyPositions" type="Node2D" parent="."]
 
 [node name="PlayerDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_PlayerDetector_body_entered"]
