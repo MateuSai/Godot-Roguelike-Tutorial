@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=31 format=2]
+[gd_resource type="TileSet" load_steps=33 format=2]
 
 [ext_resource path="res://Art/v1.1 dungeon crawler 16x16 pixel pack/full tilemap.png" type="Texture" id=1]
 
@@ -87,8 +87,16 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 [sub_resource type="ConvexPolygonShape2D" id=25]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
+[sub_resource type="NavigationPolygon" id=30]
+vertices = PoolVector2Array( 0, 0, 16, 0, 16, 7.91617, 0, 8.30378 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+
 [sub_resource type="ConvexPolygonShape2D" id=26]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="NavigationPolygon" id=31]
+vertices = PoolVector2Array( 0, 0, 16, 0, 16, 7.52855, 0, 6.94713 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 
 [sub_resource type="ConvexPolygonShape2D" id=27]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -775,3 +783,33 @@ points = PoolVector2Array( 0, 11.6406, 16, 11.8344, 16, 16, 0, 16 )
 38/shape_one_way_margin = 0.0
 38/shapes = [  ]
 38/z_index = 0
+39/name = "full tilemap.png 39"
+39/texture = ExtResource( 1 )
+39/tex_offset = Vector2( 0, 0 )
+39/modulate = Color( 1, 1, 1, 1 )
+39/region = Rect2( 48, 16, 16, 16 )
+39/tile_mode = 0
+39/occluder_offset = Vector2( 0, 0 )
+39/navigation_offset = Vector2( 0, 0 )
+39/navigation = SubResource( 30 )
+39/shape_offset = Vector2( 0, 0 )
+39/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+39/shape_one_way = false
+39/shape_one_way_margin = 0.0
+39/shapes = [  ]
+39/z_index = 0
+40/name = "floor with half navigation"
+40/texture = ExtResource( 1 )
+40/tex_offset = Vector2( 0, 0 )
+40/modulate = Color( 1, 1, 1, 1 )
+40/region = Rect2( 48, 16, 16, 16 )
+40/tile_mode = 0
+40/occluder_offset = Vector2( 0, 0 )
+40/navigation_offset = Vector2( 0, 0 )
+40/navigation = SubResource( 31 )
+40/shape_offset = Vector2( 0, 0 )
+40/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+40/shape_one_way = false
+40/shape_one_way_margin = 0.0
+40/shapes = [  ]
+40/z_index = 0

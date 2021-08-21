@@ -270,4 +270,7 @@ wait_time = 0.2
 wait_time = 1.5
 one_shot = true
 
+[node name="AimRayCast" type="RayCast2D" parent="." index="6"]
+enabled = true
+
 [connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]
