@@ -9,6 +9,8 @@ signal hp_changed(new_hp)
 export(int) var accerelation: int = 40
 export(int) var max_speed: int = 100
 
+export(bool) var flying: bool = false
+
 onready var state_machine: Node = get_node("FiniteStateMachine")
 onready var animated_sprite: AnimatedSprite = get_node("AnimatedSprite")
 
