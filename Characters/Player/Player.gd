@@ -38,6 +38,8 @@ func get_input() -> void:
 			_switch_weapon(UP)
 		elif Input.is_action_just_released("ui_next_weapon"):
 			_switch_weapon(DOWN)
+		elif Input.is_action_just_pressed("ui_throw") and current_weapon.get_index() != 0:
+			_drop_weapon()
 		
 	current_weapon.get_input()
 	
@@ -56,6 +58,28 @@ func _switch_weapon(direction: int) -> void:
 	current_weapon.hide()
 	current_weapon = weapons.get_child(index)
 	current_weapon.show()
+	
+	
+func pick_up_weapon(weapon: Node2D) -> void:
+	weapon.get_parent().call_deferred("remove_child", weapon)
+	weapons.call_deferred("add_child", weapon)
+	weapon.set_deferred("owner", weapons)
+	current_weapon.hide()
+	current_weapon.cancel_attack()
+	current_weapon = weapon
+	
+	
+func _drop_weapon() -> void:
+	var weapon_to_drop: Node2D = current_weapon
+	_switch_weapon(UP)
+	weapons.call_deferred("remove_child", weapon_to_drop)
+	get_parent().call_deferred("add_child", weapon_to_drop)
+	weapon_to_drop.set_owner(get_parent())
+	yield(weapon_to_drop.tween, "tree_entered")
+	weapon_to_drop.show()
+	
+	var throw_dir: Vector2 = (get_global_mouse_position() - position).normalized()
+	weapon_to_drop.interpolate_pos(position, position + throw_dir * 50)
 		
 		
 func cancel_attack() -> void:
