@@ -1,6 +1,8 @@
 extends KinematicBody2D
 class_name Character, "res://Art/v1.1 dungeon crawler 16x16 pixel pack/heroes/knight/knight_idle_anim_f0.png"
 
+const HIT_EFFECT_SCENE: PackedScene = preload("res://Characters/HitEffect.tscn")
+
 const FRICTION: float = 0.15
 
 export(int) var hp: int = 2 setget set_hp
@@ -31,6 +33,7 @@ func move() -> void:
 	
 func take_damage(dam: int, dir: Vector2, force: int) -> void:
 	if state_machine.state != state_machine.states.hurt and state_machine.state != state_machine.states.dead:
+		_spawn_hit_effect()
 		self.hp -= dam
 		if hp > 0:
 			state_machine.set_state(state_machine.states.hurt)
@@ -43,3 +46,8 @@ func take_damage(dam: int, dir: Vector2, force: int) -> void:
 func set_hp(new_hp: int) -> void:
 	hp = new_hp
 	emit_signal("hp_changed", new_hp)
+	
+	
+func _spawn_hit_effect() -> void:
+	var hit_effect: Sprite = HIT_EFFECT_SCENE.instance()
+	add_child(hit_effect)

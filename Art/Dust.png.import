@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Lance.png-0d0fd6202646bf16e67258532c04d94f.stex"
+path="res://.import/Dust.png-68f990dfe0d08e4f62051186b4e5fa8e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Lance.png"
-dest_files=[ "res://.import/Lance.png-0d0fd6202646bf16e67258532c04d94f.stex" ]
+source_file="res://Art/Dust.png"
+dest_files=[ "res://.import/Dust.png-68f990dfe0d08e4f62051186b4e5fa8e.stex" ]
 
 [params]
 
