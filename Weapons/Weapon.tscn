@@ -5,6 +5,7 @@
 [ext_resource path="res://Weapons/WeaponHitbox.gd" type="Script" id=3]
 
 [sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
 shader = ExtResource( 1 )
 shader_param/active = false
 
@@ -20,6 +21,7 @@ tangential_accel = 80.0
 tangential_accel_random = 0.2
 
 [sub_resource type="Animation" id=3]
+resource_local_to_scene = true
 resource_name = "attack"
 length = 1.7
 tracks/0/type = "value"
@@ -84,6 +86,7 @@ tracks/4/keys = {
 }
 
 [sub_resource type="Animation" id=4]
+resource_local_to_scene = true
 resource_name = "cancel_attack"
 length = 0.3
 tracks/0/type = "value"
@@ -148,6 +151,7 @@ tracks/4/keys = {
 }
 
 [sub_resource type="Animation" id=5]
+resource_local_to_scene = true
 resource_name = "charge"
 length = 1.2
 step = 0.2
@@ -177,6 +181,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=6]
+resource_local_to_scene = true
 resource_name = "strong_attack"
 length = 1.8
 tracks/0/type = "value"
@@ -244,11 +249,11 @@ tracks/4/keys = {
 script = ExtResource( 2 )
 
 [node name="Node2D" type="Node2D" parent="."]
-rotation = -1.5708
+rotation = 6.63225
 
 [node name="Sprite" type="Sprite" parent="Node2D"]
 material = SubResource( 1 )
-rotation = -0.785398
+rotation = 1.39626
 offset = Vector2( 5, -4 )
 
 [node name="Hitbox" type="Area2D" parent="Node2D/Sprite"]
@@ -259,6 +264,7 @@ script = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Sprite/Hitbox"]
 position = Vector2( 5.65685, -4.24264 )
 rotation = 0.785398
+disabled = true
 
 [node name="ChargeParticles" type="Particles2D" parent="Node2D/Sprite"]
 emitting = false

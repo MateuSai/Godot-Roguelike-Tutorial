@@ -48,6 +48,11 @@ config/name="Roguelike Tutorial"
 run/main_scene="res://Game.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+SceneTransistor="*res://Autoloads/SceneTransistor.tscn"
+SavedData="*res://Autoloads/SavedData.gd"
+
 [display]
 
 window/size/width=480

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Characters/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Art/v1.1 dungeon crawler 16x16 pixel pack/heroes/knight/knight_idle_spritesheet.png" type="Texture" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://Characters/Player/Player.gd" type="Script" id=4]
 [ext_resource path="res://Characters/Player/PlayerFSM.gd" type="Script" id=5]
 [ext_resource path="res://Weapons/Sword.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Weapons/WarHammer.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Art/v1.1 dungeon crawler 16x16 pixel pack/effects (new)/enemy_afterdead_explosion_anim_spritesheet.png" type="Texture" id=9]
 
 [sub_resource type="AtlasTexture" id=1]
@@ -284,8 +283,6 @@ anims/move = SubResource( 22 )
 [node name="Weapons" type="Node2D" parent="." index="4"]
 
 [node name="Sword" parent="Weapons" index="0" instance=ExtResource( 6 )]
-
-[node name="WarHammer" parent="Weapons" index="1" instance=ExtResource( 7 )]
 visible = false
 
 [node name="Camera2D" type="Camera2D" parent="." index="5"]
