@@ -30,6 +30,11 @@ _global_script_classes=[ {
 "path": "res://Characters/Hitbox.gd"
 }, {
 "base": "Node2D",
+"class": "Room",
+"language": "GDScript",
+"path": "res://Rooms/Room.gd"
+}, {
+"base": "Node2D",
 "class": "Weapon",
 "language": "GDScript",
 "path": "res://Weapons/Weapon.gd"
@@ -39,6 +44,7 @@ _global_script_class_icons={
 "Enemy": "res://Art/v1.1 dungeon crawler 16x16 pixel pack/enemies/goblin/goblin_idle_anim_f0.png",
 "FiniteStateMachine": "",
 "Hitbox": "",
+"Room": "",
 "Weapon": "res://Art/v1.1 dungeon crawler 16x16 pixel pack/heroes/knight/weapon_sword_1.png"
 }
 

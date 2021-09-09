@@ -6,6 +6,7 @@ const HIT_EFFECT_SCENE: PackedScene = preload("res://Characters/HitEffect.tscn")
 const FRICTION: float = 0.15
 
 export(int) var hp: int = 2 setget set_hp
+export(int) var max_hp: int = 2
 signal hp_changed(new_hp)
 
 export(int) var accerelation: int = 40
@@ -46,8 +47,8 @@ func take_damage(dam: int, dir: Vector2, force: int) -> void:
 		
 		
 func set_hp(new_hp: int) -> void:
-	hp = new_hp
-	emit_signal("hp_changed", new_hp)
+	hp = clamp(new_hp, 0, max_hp)
+	emit_signal("hp_changed", hp)
 	
 	
 func _spawn_hit_effect() -> void:

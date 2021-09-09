@@ -10,7 +10,7 @@ onready var health_bar_tween: Tween = get_node("HealthBar/Tween")
 
 
 func _ready() -> void:
-	max_hp = player.hp
+	max_hp = player.max_hp
 	_update_health_bar(100)
 	
 	
