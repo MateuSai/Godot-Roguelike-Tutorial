@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Rooms/Room.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Furniture and Traps/Door.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Weapons/BattleAxe.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Weapons/WarHammer.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -31,10 +30,6 @@ shape = SubResource( 1 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="9"]
 
-[node name="BattleAxe" parent="." index="10" instance=ExtResource( 3 )]
-position = Vector2( 168, 104 )
-on_floor = true
-
-[node name="WarHammer" parent="." index="11" instance=ExtResource( 4 )]
-position = Vector2( 168, 80 )
+[node name="WarHammer" parent="." index="10" instance=ExtResource( 4 )]
+position = Vector2( 208, 88 )
 on_floor = true

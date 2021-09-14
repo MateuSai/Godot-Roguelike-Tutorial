@@ -1,11 +1,13 @@
 extends Node2D
 class_name Room
 
+export(bool) var boss_room: bool = false
+
 const SPAWN_EXPLOSION_SCENE: PackedScene = preload("res://Characters/Enemies/SpawnExplosion.tscn")
 
 const ENEMY_SCENES: Dictionary = {
 	"FLYING_CREATURE": preload("res://Characters/Enemies/Flying Creature/FlyingCreature.tscn"),
-	"GOBLIN": preload("res://Characters/Enemies/Goblin/Goblin.tscn")
+	"GOBLIN": preload("res://Characters/Enemies/Goblin/Goblin.tscn"), "SLIME_BOSS": preload("res://Characters/Enemies/Bosses/SlimeBoss.tscn")
 }
 
 var num_enemies: int
@@ -41,11 +43,14 @@ func _close_entrance() -> void:
 func _spawn_enemies() -> void:
 	for enemy_position in enemy_positions_container.get_children():
 		var enemy: KinematicBody2D
-		if randi() % 2 == 0:
-			enemy = ENEMY_SCENES.FLYING_CREATURE.instance()
+		if boss_room:
+			enemy = ENEMY_SCENES.SLIME_BOSS.instance()
+			num_enemies = 15
 		else:
-			enemy = ENEMY_SCENES.GOBLIN.instance()
-		var __ = enemy.connect("tree_exited", self, "_on_enemy_killed")
+			if randi() % 2 == 0:
+				enemy = ENEMY_SCENES.FLYING_CREATURE.instance()
+			else:
+				enemy = ENEMY_SCENES.GOBLIN.instance()
 		enemy.position = enemy_position.position
 		call_deferred("add_child", enemy)
 		

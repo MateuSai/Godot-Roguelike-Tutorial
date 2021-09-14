@@ -5,8 +5,8 @@ const HIT_EFFECT_SCENE: PackedScene = preload("res://Characters/HitEffect.tscn")
 
 const FRICTION: float = 0.15
 
-export(int) var hp: int = 2 setget set_hp
 export(int) var max_hp: int = 2
+export(int) var hp: int = 2 setget set_hp
 signal hp_changed(new_hp)
 
 export(int) var accerelation: int = 40
@@ -38,6 +38,8 @@ func take_damage(dam: int, dir: Vector2, force: int) -> void:
 		self.hp -= dam
 		if name == "Player":
 			SavedData.hp = hp
+			if hp == 0:
+				SceneTransistor.start_transition_to("res://Game.tscn")
 		if hp > 0:
 			state_machine.set_state(state_machine.states.hurt)
 			velocity += dir * force
