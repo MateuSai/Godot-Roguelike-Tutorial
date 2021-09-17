@@ -5,4 +5,4 @@ Play the game on itch.io: https://mateu-s.itch.io/godot-roguelike-tutorial
 
 ![Spikes](Screenshots/spikes.png)
 ![Charged attack](Screenshots/charged_attack.png)
-![slime boss](Screenshots/slime boss.png)
+![slime boss](Screenshots/"slime boss.png")
