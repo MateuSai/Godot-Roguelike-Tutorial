@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Rooms/Furniture and Traps/Door.gd" type="Script" id=1]
 [ext_resource path="res://Art/v1.1 dungeon crawler 16x16 pixel pack/tiles/wall/door_spritesheet.png" type="Texture" id=2]
@@ -100,9 +100,24 @@ tracks/1/keys = {
 "update": 1,
 "values": [ false, true ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("LightOccluder2D:occluder:polygon")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.49 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ PoolVector2Array( -16, -16, -16, -4, 16, -4, 16, -16 ), PoolVector2Array(  ) ]
+}
 
 [sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 16, 16 )
+
+[sub_resource type="OccluderPolygon2D" id=19]
+polygon = PoolVector2Array( -16, -16, -16, -4, 16, -4, 16, -16 )
 
 [node name="Door" type="StaticBody2D"]
 collision_mask = 0
@@ -116,3 +131,6 @@ anims/open = SubResource( 17 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 18 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource( 19 )

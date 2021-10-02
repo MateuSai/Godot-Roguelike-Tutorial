@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/torch_spritesheet.png-bf88176f7faf7ab744a56b6dd3053b6f.stex"
+path="res://.import/TorchLight.png-ecccf5d8927c6a603552552c382994e2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/v1.1 dungeon crawler 16x16 pixel pack/props_itens/torch_spritesheet.png"
-dest_files=[ "res://.import/torch_spritesheet.png-bf88176f7faf7ab744a56b6dd3053b6f.stex" ]
+source_file="res://Art/TorchLight.png"
+dest_files=[ "res://.import/TorchLight.png-ecccf5d8927c6a603552552c382994e2.stex" ]
 
 [params]
 
