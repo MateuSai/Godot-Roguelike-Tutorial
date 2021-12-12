@@ -11,5 +11,6 @@ func start_transition_to(path_to_scene: String) -> void:
 	
 	
 func change_scene() -> void:
-	assert(get_tree().change_scene(new_scene) == OK)
+	var __ = get_tree().change_scene(new_scene) == OK
+	assert(__)
 

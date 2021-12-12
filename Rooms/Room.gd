@@ -1,5 +1,5 @@
 extends Node2D
-class_name Room
+class_name DungeonRoom
 
 export(bool) var boss_room: bool = false
 

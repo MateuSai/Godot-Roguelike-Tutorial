@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Characters/Player/White.gdshader" type="Shader" id=1]
 [ext_resource path="res://Weapons/Weapon.gd" type="Script" id=2]
 [ext_resource path="res://Weapons/WeaponHitbox.gd" type="Script" id=3]
+[ext_resource path="res://Art/19+ icons/white.png" type="Texture" id=4]
+[ext_resource path="res://Weapons/UI.gd" type="Script" id=6]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -286,6 +288,31 @@ anims/strong_attack = SubResource( 6 )
 
 [node name="Tween" type="Tween" parent="."]
 
+[node name="CoolDownTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource( 6 )
+
+[node name="AbilityIcon" type="TextureProgress" parent="UI"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 24.0
+margin_top = -82.0
+margin_right = 404.0
+margin_bottom = 298.0
+rect_scale = Vector2( 0.15, 0.15 )
+texture_progress = ExtResource( 4 )
+fill_mode = 8
+tint_progress = Color( 0.25098, 0.235294, 0.235294, 0.839216 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="UI"]
+
 [connection signal="area_entered" from="Node2D/Sprite/Hitbox" to="Node2D/Sprite/Hitbox" method="_on_Hitbox_area_entered"]
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_PlayerDetector_body_entered"]
 [connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
+[connection signal="timeout" from="CoolDownTimer" to="." method="_on_CoolDownTimer_timeout"]

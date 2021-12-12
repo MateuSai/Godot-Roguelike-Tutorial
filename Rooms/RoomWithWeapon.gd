@@ -1,4 +1,4 @@
-extends Room
+extends DungeonRoom
 
 const WEAPONS: Array = [preload("res://Weapons/WarHammer.tscn"), preload("res://Weapons/BattleAxe.tscn")]
 

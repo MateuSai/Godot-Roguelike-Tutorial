@@ -1,8 +1,16 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Weapons/Weapon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Art/v1.1 dungeon crawler 16x16 pixel pack/effects (new)/slash_effect_anim_spritesheet.png" type="Texture" id=2]
 [ext_resource path="res://Art/v1.1 dungeon crawler 16x16 pixel pack/heroes/knight/weapon_sword_1.png" type="Texture" id=3]
+[ext_resource path="res://Characters/Player/White.gdshader" type="Shader" id=4]
+[ext_resource path="res://Weapons/sword_active_ability.tres" type="Animation" id=5]
+[ext_resource path="res://Art/19+ icons/swingB.png" type="Texture" id=6]
+
+[sub_resource type="ShaderMaterial" id=6]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/active = false
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 2.0
@@ -172,6 +180,54 @@ tracks/5/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/6/type = "value"
+tracks/6/path = NodePath("Node2D/Sprite/Hitbox:damage")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Node2D/Sprite/Hitbox/CollisionShape2D:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("SlashSprite:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 18, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("SlashSprite:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "charge"
@@ -273,6 +329,7 @@ tracks/4/keys = {
 rotation = -1.5708
 
 [node name="Sprite" parent="Node2D" index="0"]
+material = SubResource( 6 )
 position = Vector2( 7, 3 )
 rotation = -0.785398
 texture = ExtResource( 3 )
@@ -282,7 +339,6 @@ knockback_force = 200
 
 [node name="CollisionShape2D" parent="Node2D/Sprite/Hitbox" index="0"]
 shape = SubResource( 1 )
-disabled = true
 
 [node name="ChargeParticles" parent="Node2D/Sprite" index="1"]
 position = Vector2( 5.65685, -4.24264 )
@@ -292,9 +348,14 @@ visible = false
 position = Vector2( 18, 0 )
 texture = ExtResource( 2 )
 hframes = 3
+frame = 2
 
-[node name="AnimationPlayer" parent="." index="2"]
+[node name="AnimationPlayer" parent="." index="3"]
+anims/active_ability = ExtResource( 5 )
 anims/attack = SubResource( 2 )
 anims/cancel_attack = SubResource( 3 )
 anims/charge = SubResource( 4 )
 anims/strong_attack = SubResource( 5 )
+
+[node name="AbilityIcon" parent="UI" index="0"]
+texture_under = ExtResource( 6 )
