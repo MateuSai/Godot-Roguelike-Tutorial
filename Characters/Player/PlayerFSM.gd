@@ -44,3 +44,6 @@ func _enter_state(_previous_state: int, new_state: int) -> void:
 		states.dead:
 			animation_player.play("dead")
 			parent.cancel_attack()
+			SavedData.hp = SavedData.MaxHP
+			SavedData.num_floor = 0
+		
