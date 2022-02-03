@@ -29,14 +29,12 @@ position = Vector2( 112, 128 )
 position = Vector2( 112, 48 )
 shape = SubResource( 1 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="9"]
-
-[node name="WarHammer" parent="." index="10" instance=ExtResource( 4 )]
+[node name="WarHammer" parent="." index="9" instance=ExtResource( 4 )]
 position = Vector2( 208, 88 )
 on_floor = true
 
-[node name="Torch" parent="." index="11" instance=ExtResource( 3 )]
+[node name="Torch" parent="." index="10" instance=ExtResource( 3 )]
 position = Vector2( 72, 24 )
 
-[node name="Torch2" parent="." index="12" instance=ExtResource( 3 )]
+[node name="Torch2" parent="." index="11" instance=ExtResource( 3 )]
 position = Vector2( 168, 24 )

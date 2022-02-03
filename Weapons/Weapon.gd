@@ -92,3 +92,7 @@ func show() -> void:
 func hide() -> void:
 	ability_icon.hide()
 	.hide()
+	
+	
+func get_texture() -> Texture:
+	return get_node("Node2D/Sprite").texture

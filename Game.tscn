@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Characters/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Game.gd" type="Script" id=3]
@@ -6,6 +6,13 @@
 [ext_resource path="res://Art/v1.1 dungeon crawler 16x16 pixel pack/ui (new)/health_ui.png" type="Texture" id=5]
 [ext_resource path="res://Art/progress bar.png" type="Texture" id=6]
 [ext_resource path="res://UI.gd" type="Script" id=7]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.713726, 0.670588, 0.670588, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 3 )
@@ -28,6 +35,27 @@ __meta__ = {
 
 [node name="Tween" type="Tween" parent="UI/HealthBar"]
 
+[node name="PanelContainer" type="PanelContainer" parent="UI"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -30.0
+margin_right = 7.0
+margin_bottom = -16.0
+grow_horizontal = 2
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Inventory" type="HBoxContainer" parent="UI/PanelContainer"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 12.0
+margin_bottom = 12.0
+
 [node name="Rooms" type="Navigation2D" parent="."]
 script = ExtResource( 4 )
 
@@ -38,3 +66,6 @@ max_hp = 4
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="hp_changed" from="Player" to="UI" method="_on_Player_hp_changed"]
+[connection signal="weapon_droped" from="Player" to="UI" method="_on_Player_weapon_droped"]
+[connection signal="weapon_picked_up" from="Player" to="UI" method="_on_Player_weapon_picked_up"]
+[connection signal="weapon_switched" from="Player" to="UI" method="_on_Player_weapon_switched"]

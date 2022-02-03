@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Art/Hammer.png" type="Texture" id=1]
+[ext_resource path="res://InventoryItem.gd" type="Script" id=2]
+
+[node name="InventoryItem" type="TextureRect"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 16, 16 )
+texture = ExtResource( 1 )
+stretch_mode = 6
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+border_color = Color( 0.45098, 0.396078, 0.396078, 1 )
+border_width = 2.0
+editor_only = false
