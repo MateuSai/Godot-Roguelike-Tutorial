@@ -24,6 +24,8 @@ func _on_ThrowableKnike_body_exited(_body: KinematicBody) -> void:
 		enemy_exited = true
 		set_collision_mask_bit(0, true)
 		set_collision_mask_bit(1, true)
+		set_collision_mask_bit(2, true)
+		set_collision_mask_bit(3, true)
 
 
 func _collide(body: KinematicBody2D) -> void:

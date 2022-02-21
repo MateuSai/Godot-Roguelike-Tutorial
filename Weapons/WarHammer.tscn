@@ -259,6 +259,7 @@ damage = 2
 [node name="CollisionShape2D" parent="Node2D/Sprite/Hitbox" index="0"]
 position = Vector2( 5, -4 )
 shape = SubResource( 1 )
+disabled = false
 
 [node name="ChargeParticles" parent="Node2D/Sprite" index="1"]
 position = Vector2( 8, -7 )

@@ -251,11 +251,11 @@ tracks/4/keys = {
 script = ExtResource( 2 )
 
 [node name="Node2D" type="Node2D" parent="."]
-rotation = 6.63225
+rotation = -1.5708
 
 [node name="Sprite" type="Sprite" parent="Node2D"]
 material = SubResource( 1 )
-rotation = 1.39626
+rotation = -0.785398
 offset = Vector2( 5, -4 )
 
 [node name="Hitbox" type="Area2D" parent="Node2D/Sprite"]

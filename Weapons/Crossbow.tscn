@@ -1,0 +1,234 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Weapons/Weapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Weapons/Crossbow.gd" type="Script" id=2]
+[ext_resource path="res://Art/Crossbow.png" type="Texture" id=3]
+[ext_resource path="res://Characters/Player/White.gdshader" type="Shader" id=4]
+[ext_resource path="res://Art/19+ icons/iceB.png" type="Texture" id=5]
+
+[sub_resource type="ShaderMaterial" id=2]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/active = false
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 7.0
+height = 2.0
+
+[sub_resource type="Animation" id=7]
+resource_name = "active_ability"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Node2D/Sprite/ChargeParticles:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Node2D/Sprite:material:shader_param/active")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "triple_shoot"
+}, {
+"args": [  ],
+"method": "triple_shoot"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_local_to_scene = true
+resource_name = "attack"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Node2D/Sprite/ChargeParticles:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Node2D/Sprite:material:shader_param/active")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0 ],
+"method": "shoot"
+} ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_local_to_scene = true
+resource_name = "cancel_attack"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Node2D/Sprite/ChargeParticles:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Node2D/Sprite:material:shader_param/active")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_local_to_scene = true
+resource_name = "charge"
+length = 1.2
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Node2D/Sprite:material:shader_param/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Node2D/Sprite/ChargeParticles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_local_to_scene = true
+resource_name = "strong_attack"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("Node2D/Sprite:material:shader_param/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Node2D/Sprite/ChargeParticles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "triple_shoot"
+} ]
+}
+
+[node name="Crossbow" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+ranged_weapon = true
+rotation_offset = 180
+
+[node name="Sprite" parent="Node2D" index="0"]
+material = SubResource( 2 )
+position = Vector2( 0, -3 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" parent="Node2D/Sprite/Hitbox" index="0"]
+disabled = false
+
+[node name="CollisionShape2D" parent="PlayerDetector" index="0"]
+position = Vector2( -9, -1 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" parent="." index="2"]
+anims/active_ability = SubResource( 7 )
+anims/attack = SubResource( 3 )
+anims/cancel_attack = SubResource( 4 )
+anims/charge = SubResource( 5 )
+anims/strong_attack = SubResource( 6 )
+
+[node name="AbilityIcon" parent="UI" index="0"]
+texture_under = ExtResource( 5 )

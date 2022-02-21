@@ -3,6 +3,9 @@ class_name Weapon, "res://Art/v1.1 dungeon crawler 16x16 pixel pack/heroes/knigh
 
 export(bool) var on_floor: bool = false
 
+export var ranged_weapon: bool = false
+export var rotation_offset: int = 0
+
 var can_active_ability: bool = true
 
 onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
@@ -37,13 +40,16 @@ func get_input() -> void:
 			
 			
 func move(mouse_direction: Vector2) -> void:
-	if not animation_player.is_playing() or animation_player.current_animation == "charge":
-		rotation = mouse_direction.angle()
-		hitbox.knockback_direction = mouse_direction
-		if scale.y == 1 and mouse_direction.x < 0:
-			scale.y = -1
-		elif scale.y == -1 and mouse_direction.x > 0:
-			scale.y = 1
+	if ranged_weapon:
+		rotation_degrees = rad2deg(mouse_direction.angle()) + rotation_offset
+	else:
+		if not animation_player.is_playing() or animation_player.current_animation == "charge":
+			rotation = mouse_direction.angle()
+			hitbox.knockback_direction = mouse_direction
+			if scale.y == 1 and mouse_direction.x < 0:
+				scale.y = -1
+			elif scale.y == -1 and mouse_direction.x > 0:
+				scale.y = 1
 			
 			
 func cancel_attack() -> void:
