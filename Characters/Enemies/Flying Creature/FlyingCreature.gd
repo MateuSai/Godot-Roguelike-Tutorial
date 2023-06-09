@@ -1,6 +1,6 @@
 extends Enemy
 
-onready var hitbox: Area2D = get_node("Hitbox")
+@onready var hitbox: Area2D = get_node("Hitbox")
 
 
 func _process(_delta: float) -> void:

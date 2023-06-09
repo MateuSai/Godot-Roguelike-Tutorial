@@ -3,7 +3,7 @@
 [ext_resource path="res://Autoloads/SceneTransistor.gd" type="Script" id=1]
 
 [sub_resource type="Animation" id=1]
-resource_name = "change_scene"
+resource_name = "change_scene_to_file"
 length = 1.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect:color")
@@ -12,8 +12,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1.1, 1.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.5, 1.1, 1.6 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
@@ -24,11 +24,11 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.5 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0.5 ),
+"transitions": PackedFloat32Array( 1 ),
 "values": [ {
 "args": [  ],
-"method": "change_scene"
+"method": "change_scene_to_file"
 } ]
 }
 
@@ -45,4 +45,4 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/change_scene = SubResource( 1 )
+anims/change_scene_to_file = SubResource( 1 )

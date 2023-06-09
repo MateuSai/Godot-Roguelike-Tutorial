@@ -1,29 +1,23 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://7oeqdu22e1q5"]
 
-[ext_resource path="res://Rooms/TileSet.tres" type="TileSet" id=1]
-[ext_resource path="res://Rooms/Room.gd" type="Script" id=2]
+[ext_resource type="TileSet" uid="uid://b6ahcd27jnf2v" path="res://Rooms/TileSet.tres" id="1"]
+[ext_resource type="Script" path="res://Rooms/Room.gd" id="2"]
 
 [node name="Room" type="Node2D"]
-script = ExtResource( 2 )
+script = ExtResource("2")
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource( 1 )
-cell_size = Vector2( 16, 16 )
-format = 1
+tile_set = ExtResource("1")
+format = 2
 
 [node name="TileMap2" type="TileMap" parent="."]
 z_index = 1
-tile_set = ExtResource( 1 )
-cell_size = Vector2( 16, 16 )
-format = 1
+tile_set = ExtResource("1")
+format = 2
 
 [node name="FurnitureTileMap" type="TileMap" parent="."]
-tile_set = ExtResource( 1 )
-cell_size = Vector2( 16, 16 )
-cell_y_sort = true
-collision_layer = 0
-collision_mask = 2
-format = 1
+tile_set = ExtResource("1")
+format = 2
 
 [node name="Entrance" type="Node2D" parent="."]
 

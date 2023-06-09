@@ -2,8 +2,8 @@ extends FiniteStateMachine
 
 var can_jump: bool = false
 
-onready var jump_timer: Timer = parent.get_node("JumpTimer")
-onready var hitbox: Area2D = parent.get_node("Hitbox")
+@onready var jump_timer: Timer = parent.get_node("JumpTimer")
+@onready var hitbox: Area2D = parent.get_node("Hitbox")
 
 
 func _init() -> void:

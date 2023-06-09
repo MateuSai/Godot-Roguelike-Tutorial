@@ -11,25 +11,25 @@ func launch(initial_position: Vector2, dir: Vector2, speed: int) -> void:
 	direction = dir
 	knockback_direction = dir
 	knife_speed = speed
-	
+
 	rotation += dir.angle() + PI/4
-	
-	
+
+
 func _physics_process(delta: float) -> void:
 	position += direction * knife_speed * delta
 
 
-func _on_ThrowableKnike_body_exited(_body: KinematicBody) -> void:
+func _on_ThrowableKnike_body_exited(_body: Node2D) -> void:
 	if not enemy_exited:
 		enemy_exited = true
-		set_collision_mask_bit(0, true)
-		set_collision_mask_bit(1, true)
-		set_collision_mask_bit(2, true)
-		set_collision_mask_bit(3, true)
+		set_collision_mask_value(1, true)
+		set_collision_mask_value(2, true)
+		set_collision_mask_value(3, true)
+		set_collision_mask_value(4, true)
 
 
-func _collide(body: KinematicBody2D) -> void:
+func _collide(body: Node2D) -> void:
 	if enemy_exited:
-		if body != null:
+		if body.has_method("take_damage"):
 			body.take_damage(damage, knockback_direction, knockback_force)
 		queue_free()

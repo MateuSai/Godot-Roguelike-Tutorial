@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Art/TorchLight.png" type="Texture" id=1]
-[ext_resource path="res://Art/v1.1 dungeon crawler 16x16 pixel pack/props_itens/torch_spritesheet.png" type="Texture" id=2]
+[ext_resource path="res://Art/TorchLight.png" type="Texture2D" id=1]
+[ext_resource path="res://Art/v1.1 dungeon crawler 16x16 pixel pack/props_itens/torch_spritesheet.png" type="Texture2D" id=2]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
@@ -35,12 +35,12 @@ animations = [ {
 "speed": 8.0
 } ]
 
-[node name="Torch" type="Light2D"]
+[node name="Torch" type="PointLight2D"]
 texture = ExtResource( 1 )
 color = Color( 0.862745, 0.423529, 0.101961, 1 )
 shadow_enabled = true
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 frames = SubResource( 7 )
 frame = 5
 playing = true
